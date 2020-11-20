@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="cadastre uma fruta" id="in_fruta">
+    <button onclick="cadastrar()">cadastrar fruta</button>
+<br>
+    primeira fruta cadastrada: <b id="b_primeira"></b>
+<br>
+    ultima fruta cadastrada: <b id="b_ultima"></b>
+<br>
+    teceira cadastrada: <b id="b_3"></b>
+<br>
+    total a pagar(cada fruta custaR$2,50): R$ <b id="b_total"></b>
+<br>
+    <b id="resultado"></b>
+
+</body>
+</html>
+<script>
+    var frutas = [];
+    function cadastrar() {
+
+        var nova_fruta = in_fruta.value;
+
+        frutas.push(nova_fruta);
+
+        console.log(frutas);
+
+        b_primeira.innerHTML = frutas[0];
+        b_ultima.innerHTML = frutas[frutas.length-1];
+
+        if (frutas.length < 3) {
+            b_3.innerHTML ='não tem'
+        } else {
+            b_3.innerHTML = frutas[2];
+        }
+
+        var total = frutas.length * 2.50;
+
+        var total_maior_5 = (total) -1;
+
+        var total_marior_10 = (total_maior_5) -3;
+
+        b_total.innerHTML = total.toFixed(2);
+
+
+        if(frutas.length >= 5 && frutas.length < 10) {
+            b_total.innerHTML = total.toFixed(2) -1;
+        } else if ( frutas.length >= 10) {
+            b_total.innerHTML = total.toFixed(2) -3;
+        } else {
+            b_total.innerHTML = total.toFixed(2);
+        }
+
+        if (frutas.length % 4 == 0) {
+            resultado.innerHTML = 'ta comendo fruta igual coelho';
+        } else {
+            resultado.innerHTML=''
+        }
+            
+        
+    }
+</script>

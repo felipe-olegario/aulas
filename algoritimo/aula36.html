@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><input type="text" placeholder="informe o pais" id="pais">
+    <button onclick="cadastrar()">cadastrar</button>
+    <br>
+    <button onclick="ver()">ver destinos</button>
+    <div id="destinos"></div>
+</body>
+
+</html>
+<script>
+    var paises = []
+
+    function cadastrar() {
+        paises.push(pais.value);
+
+        console.log(paises);
+    }
+
+
+    function ver() {
+        destinos.innerHTML = '';
+        for (var posicao = 0; posicao < paises.length; posicao++) {
+            if (posicao % 2 == 0) {
+                destinos.innerHTML += `${paises[posicao]} <br>`;
+            } else {
+                destinos.innerHTML += `<b>${paises[posicao]}</b> <br>`;
+            }
+        }
+    }
+</script>
